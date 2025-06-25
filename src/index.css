@@ -51,6 +51,38 @@
   background-color: aqua;
 }
 
+.memeImage {
+  width: 441px;
+  margin: 0 auto 20px auto;
+  display: block;
+}
+
+.meme {
+  position: relative;
+}
+
+.topText, .bottomText {
+  position: absolute;
+  color: white;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  text-align: center;
+  font-size: 35px;
+  text-shadow: 2px 2px black;
+  font-weight: bolder;
+}
+
+.topText {
+  top: 20%;
+  left: 50%;
+}
+
+.bottomText {
+  top: 80%;
+  left: 50%;
+}
+
+
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
