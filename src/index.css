@@ -36,6 +36,7 @@
 .formContainer > div > input {
   width: 200px;
   height: 25px;
+  /* border: 1px solid #D5D4D8; */
 }
 
 .getNewImageButton {
@@ -61,6 +62,16 @@
   position: relative;
 }
 
+.topText {
+  top: 20%;
+  left: 50%;
+}
+
+.bottomText {
+  top: 80%;
+  left: 50%;
+}
+
 .topText, .bottomText {
   position: absolute;
   color: white;
@@ -72,15 +83,7 @@
   font-weight: bolder;
 }
 
-.topText {
-  top: 20%;
-  left: 50%;
-}
 
-.bottomText {
-  top: 80%;
-  left: 50%;
-}
 
 
 /* :root {
