@@ -1,12 +1,41 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function Main() {
 
   const[meme, setMeme] = useState({
-    topText: '',
-    bottomText: '',
+    topText: 'Top Text Goes Here',
+    bottomText: 'Bottom Text Goes Here',
     url: "https://wallpapers.com/images/featured/game-of-thrones-pictures-ad9d02jxoawpkpqg.jpg"
   })
+
+  const [memeArr, setMemeArr] = useState([])
+
+  const [randNum, setRandNum] = useState()
+
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then(res => res.json())
+      .then(data => setMemeArr(data.data.memes))
+  }, [])
+
+  // console.log(memeArr)
+
+  // if(memeArr) {
+  //   memeArr.forEach(m => console.log(m.url))
+  // }
+
+
+
+  // let rand = Math.floor(Math.random() * 100)
+  useEffect(() => {
+    if(memeArr.length > 0) {
+      setMeme(prev => ({
+        ...prev,
+        url: memeArr[randNum].url
+      }))
+    }
+  }, [randNum])
+
 
   function inputChange(e) {
     setMeme(prev => ({
@@ -26,7 +55,7 @@ export default function Main() {
             name="topText"
             onChange={inputChange}
             value={meme.topText}
-            maxlength='26'
+            maxLength='26'
           >
           </input>
         </div>
@@ -38,13 +67,13 @@ export default function Main() {
             name="bottomText"
             onChange={inputChange}
             value={meme.bottomText}
-            maxlength='26'
+            maxLength='26'
           >
           </input>
         </div>
       </div>
 
-      <button className="getNewImageButton">Get a new meme image 🖼</button>
+      <button className="getNewImageButton" onClick={() => setRandNum(Math.floor(Math.random() * 100))}>Get a new meme image 🖼</button>
 
       <div className="meme">
         <div className="topText">{meme.topText}</div>
