@@ -1,6 +1,6 @@
 React app that generates random memes.
 
-#To run locally
+# To run locally
 npm install
 
 npm run dev
